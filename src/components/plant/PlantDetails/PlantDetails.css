@@ -6,12 +6,17 @@
 .plant-details-image {
   width: 100%;
   max-height: 400px;
-  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: #f3f4f6;
 }
 
 .plant-details-image img {
-  width: 100%;
+  max-width: 100%;
+  max-height: 400px;
+  width: auto;
+  height: auto;
   object-fit: contain;
 }
 
@@ -77,4 +82,17 @@
   margin-top: 1.5rem;
   padding-top: 1.5rem;
   border-top: 1px solid #e5e7eb;
+}
+
+@media (max-width: 640px) {
+  .plant-details-image {
+    max-height: 50vh;
+    min-height: 200px;
+  }
+
+  .plant-details-image img {
+    max-height: 50vh;
+    object-fit: contain;
+    display: block;
+  }
 }
