@@ -83,3 +83,16 @@
   padding-top: 1.5rem;
   border-top: 1px solid #e5e7eb;
 }
+
+@media (max-width: 640px) {
+  .plant-details-image {
+    max-height: 50vh;
+    min-height: 200px;
+  }
+
+  .plant-details-image img {
+    max-height: 50vh;
+    object-fit: contain;
+    display: block;
+  }
+}
