@@ -1,0 +1,149 @@
+/* Clustered Marker Icon */
+.clustered-marker-wrapper {
+  background: transparent;
+  border: none;
+}
+
+.clustered-marker-icon {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid #10b981;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clustered-marker-icon.has-cluster {
+  width: 60px;
+  height: 60px;
+  border-width: 4px;
+  border-color: #059669;
+}
+
+.clustered-marker-icon img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark overlay for clustered markers */
+.clustered-marker-icon.has-cluster::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.clustered-marker-icon:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+/* Count Badge */
+.cluster-count-badge {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  z-index: 10;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
+  pointer-events: none;
+}
+
+/* Cluster Popup */
+.cluster-popup .leaflet-popup-content-wrapper {
+  border-radius: 12px;
+  padding: 0;
+}
+
+.cluster-popup .leaflet-popup-content {
+  margin: 0;
+  min-width: 280px;
+}
+
+.cluster-popup-content {
+  padding: 16px;
+}
+
+.cluster-popup-title {
+  margin: 0 0 16px 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1f2937;
+  border-bottom: 2px solid #10b981;
+  padding-bottom: 8px;
+}
+
+/* Plants Grid */
+.cluster-plants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 12px;
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+/* Single column for 1-2 items, 2 columns for 3+ */
+.cluster-plants-grid:has(.cluster-plant-item:nth-child(1):last-child),
+.cluster-plants-grid:has(.cluster-plant-item:nth-child(2):last-child) {
+  grid-template-columns: 1fr;
+}
+
+.cluster-plant-item {
+  background: #f9fafb;
+  border-radius: 8px;
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  transition: all 0.2s ease;
+}
+
+.cluster-plant-item:hover {
+  border-color: #10b981;
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Scrollbar styling */
+.cluster-plants-grid::-webkit-scrollbar {
+  width: 6px;
+}
+
+.cluster-plants-grid::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.cluster-plants-grid::-webkit-scrollbar-thumb {
+  background: #10b981;
+  border-radius: 3px;
+}
+
+.cluster-plants-grid::-webkit-scrollbar-thumb:hover {
+  background: #059669;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .cluster-plants-grid {
+    grid-template-columns: 1fr;
+    max-height: 300px;
+  }
+
+  .cluster-popup .leaflet-popup-content {
+    min-width: 240px;
+  }
+}

@@ -1,0 +1,87 @@
+.plant-form {
+  width: 100%;
+}
+
+.plant-form-step {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.plant-form-step h3 {
+  margin: 0 0 1rem 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #111827;
+}
+
+.plant-form-photo-choice {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.plant-form-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.plant-form-preview {
+  width: 100%;
+  max-height: 300px;
+  overflow: hidden;
+  border-radius: 8px;
+  background-color: #f3f4f6;
+}
+
+.plant-form-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.plant-form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.plant-form-field label {
+  font-weight: 500;
+  color: #374151;
+  font-size: 0.875rem;
+}
+
+.plant-form-field input,
+.plant-form-field textarea {
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-family: inherit;
+  transition: border-color 0.2s;
+}
+
+.plant-form-field input:focus,
+.plant-form-field textarea:focus {
+  outline: none;
+  border-color: #10b981;
+  box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
+
+.plant-form-field textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.plant-form-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.plant-form-actions button {
+  flex: 1;
+}

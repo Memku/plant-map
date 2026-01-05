@@ -1,0 +1,43 @@
+.location-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  height: 500px;
+}
+
+.location-picker-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.location-picker-error {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin: 0;
+}
+
+.location-picker-success {
+  color: #10b981;
+  font-size: 0.875rem;
+  margin: 0;
+  font-weight: 500;
+}
+
+.location-picker-map {
+  flex: 1;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+.location-picker-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+@media (max-width: 640px) {
+  .location-picker {
+    height: 400px;
+  }
+}

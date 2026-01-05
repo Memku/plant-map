@@ -1,0 +1,130 @@
+.plant-identification {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.plant-identification-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.plant-identification-header h4 {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.plant-identification-offline {
+  font-size: 0.75rem;
+  color: #ef4444;
+  font-weight: 500;
+  padding: 0.25rem 0.5rem;
+  background-color: #fee2e2;
+  border-radius: 4px;
+}
+
+.plant-identification-error {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.plant-identification-error p {
+  margin: 0;
+  padding: 0.75rem;
+  background-color: #fef2f2;
+  border: 1px solid #fecaca;
+  border-radius: 6px;
+  color: #991b1b;
+  font-size: 0.875rem;
+}
+
+.plant-identification-results {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.plant-identification-warning {
+  padding: 0.75rem;
+  background-color: #fef3c7;
+  border: 1px solid #fcd34d;
+  border-radius: 6px;
+  color: #92400e;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.plant-identification-suggestions-title {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.plant-identification-suggestions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.plant-identification-suggestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem;
+  background-color: white;
+  border: 2px solid #e5e7eb;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.plant-identification-suggestion:hover {
+  border-color: #10b981;
+  background-color: #f0fdf4;
+}
+
+.plant-identification-suggestion.selected {
+  border-color: #10b981;
+  background-color: #d1fae5;
+}
+
+.plant-identification-suggestion-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.plant-identification-suggestion-name {
+  font-weight: 600;
+  color: #111827;
+  font-size: 0.9375rem;
+}
+
+.plant-identification-suggestion-scientific {
+  font-size: 0.8125rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.plant-identification-suggestion-aka {
+  font-style: normal;
+  color: #9ca3af;
+}
+
+.plant-identification-suggestion-confidence {
+  font-weight: 700;
+  color: #10b981;
+  font-size: 1.125rem;
+  margin-left: 1rem;
+}
