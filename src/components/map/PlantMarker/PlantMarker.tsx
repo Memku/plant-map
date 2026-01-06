@@ -1,8 +1,9 @@
-import React, { useMemo } from 'react';
+import React, { useMemo, useState } from 'react';
 import { Marker, Popup } from 'react-leaflet';
 import L from 'leaflet';
 import type { Plant } from '../../../types/plant.types';
 import { PlantCard } from '../../plant/PlantCard/PlantCard';
+import { ImageModal } from '../../common/ImageModal/ImageModal';
 import './PlantMarker.css';
 
 interface PlantMarkerProps {
@@ -10,6 +11,16 @@ interface PlantMarkerProps {
 }
 
 export const PlantMarker: React.FC<PlantMarkerProps> = ({ plant }) => {
+  const [selectedImage, setSelectedImage] = useState<{ url: string; alt: string } | null>(null);
+
+  const handleImageClick = () => {
+    setSelectedImage({ url: plant.photo, alt: plant.name || 'Plant' });
+  };
+
+  const handleCloseModal = () => {
+    setSelectedImage(null);
+  };
+
   const icon = useMemo(() => {
     const thumbnail = plant.photoThumbnail || plant.photo;
 
@@ -25,13 +36,23 @@ export const PlantMarker: React.FC<PlantMarkerProps> = ({ plant }) => {
   }, [plant.photoThumbnail, plant.photo, plant.name]);
 
   return (
-    <Marker
-      position={[plant.location.latitude, plant.location.longitude]}
-      icon={icon}
-    >
-      <Popup>
-        <PlantCard plant={plant} />
-      </Popup>
-    </Marker>
+    <>
+      <Marker
+        position={[plant.location.latitude, plant.location.longitude]}
+        icon={icon}
+      >
+        <Popup>
+          <PlantCard plant={plant} onClick={handleImageClick} />
+        </Popup>
+      </Marker>
+
+      {selectedImage && (
+        <ImageModal
+          imageUrl={selectedImage.url}
+          altText={selectedImage.alt}
+          onClose={handleCloseModal}
+        />
+      )}
+    </>
   );
 };
