@@ -10,8 +10,6 @@
   justify-content: center;
   z-index: 10000;
   animation: fadeIn 0.2s ease-out;
-  pointer-events: auto;
-  touch-action: none;
 }
 
 @keyframes fadeIn {
@@ -114,7 +112,6 @@
   background: rgba(255, 255, 255, 0.05);
   border-radius: 8px;
   user-select: none;
-  touch-action: none;
 }
 
 .image-modal-image {

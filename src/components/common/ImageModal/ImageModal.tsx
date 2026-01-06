@@ -27,8 +27,6 @@ export const ImageModal: React.FC<ImageModalProps> = ({ imageUrl, altText, onClo
   };
 
   const handleMouseDown = (e: React.MouseEvent<HTMLImageElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
     if (zoom > 1) {
       setIsDragging(true);
       setDragStart({
@@ -39,8 +37,6 @@ export const ImageModal: React.FC<ImageModalProps> = ({ imageUrl, altText, onClo
   };
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
     if (isDragging && zoom > 1) {
       setPosition({
         x: e.clientX - dragStart.x,
@@ -49,60 +45,31 @@ export const ImageModal: React.FC<ImageModalProps> = ({ imageUrl, altText, onClo
     }
   };
 
-  const handleMouseUp = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleMouseUp = () => {
     setIsDragging(false);
   };
 
-  const handleMouseLeave = (e: React.MouseEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
+  const handleMouseLeave = () => {
     setIsDragging(false);
   };
 
   const handleBackdropClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.stopPropagation();
     if (e.target === e.currentTarget) {
       onClose();
     }
   };
 
-  const handleOverlayMouseDown = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-  };
-
-  const handleWheel = (e: React.WheelEvent) => {
-    e.preventDefault();
-    e.stopPropagation();
-  };
-
   return (
-    <div
-      className="image-modal-overlay"
-      onClick={handleBackdropClick}
-      onMouseDown={handleOverlayMouseDown}
-      onWheel={handleWheel}
-      onTouchStart={(e) => { e.stopPropagation(); }}
-      onTouchMove={(e) => { e.stopPropagation(); }}
-      onTouchEnd={(e) => { e.stopPropagation(); }}
-    >
+    <div className="image-modal-overlay" onClick={handleBackdropClick}>
       <div className="image-modal-content">
-        <button
-          className="image-modal-close"
-          onClick={onClose}
-          onMouseDown={(e) => e.stopPropagation()}
-          aria-label="Close"
-        >
+        <button className="image-modal-close" onClick={onClose} aria-label="Close">
           ×
         </button>
 
         <div className="image-modal-controls">
           <button
             className="image-modal-zoom-btn"
-            onClick={(e) => { e.stopPropagation(); handleZoomOut(); }}
-            onMouseDown={(e) => e.stopPropagation()}
+            onClick={handleZoomOut}
             disabled={zoom <= 0.5}
             aria-label="Zoom out"
           >
@@ -111,8 +78,7 @@ export const ImageModal: React.FC<ImageModalProps> = ({ imageUrl, altText, onClo
           <span className="image-modal-zoom-level">{Math.round(zoom * 100)}%</span>
           <button
             className="image-modal-zoom-btn"
-            onClick={(e) => { e.stopPropagation(); handleZoomIn(); }}
-            onMouseDown={(e) => e.stopPropagation()}
+            onClick={handleZoomIn}
             disabled={zoom >= 3}
             aria-label="Zoom in"
           >
@@ -125,9 +91,6 @@ export const ImageModal: React.FC<ImageModalProps> = ({ imageUrl, altText, onClo
           onMouseMove={handleMouseMove}
           onMouseUp={handleMouseUp}
           onMouseLeave={handleMouseLeave}
-          onTouchStart={(e) => e.stopPropagation()}
-          onTouchMove={(e) => e.stopPropagation()}
-          onTouchEnd={(e) => e.stopPropagation()}
         >
           <img
             ref={imageRef}
